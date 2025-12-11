@@ -118,6 +118,7 @@
 
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Playfair Display', serif;
+        line-height: 1.2 !important;
       }
 
       .font-romantic {
@@ -234,16 +235,28 @@
         background: linear-gradient(135deg, hsl(200 80% 60%) 0%, hsl(200 70% 50%) 100%);
         color: white;
         font-weight: 600;
-        padding: 1rem 2.5rem;
+        padding: 0.875rem 2rem;
         border-radius: 9999px;
         border: none;
         cursor: pointer;
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         display: inline-flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.5rem;
         transition: all 0.3s ease;
         box-shadow: 0 10px 30px -10px hsla(200, 80%, 60%, 0.5);
+        width: auto;
+        min-width: fit-content;
+        max-width: 100%;
+        justify-content: center;
+      }
+
+      @media (max-width: 640px) {
+        .proposal-btn {
+          font-size: 1rem;
+          padding: 0.75rem 1.5rem;
+          gap: 0.375rem;
+        }
       }
 
       .proposal-btn:hover {
@@ -283,7 +296,7 @@
       <!-- Hero Section -->
       <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Background -->
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('src/assets/hero-bg.jpg');">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/hero-bg.jpg');">
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/80"></div>
         </div>
 
@@ -295,11 +308,11 @@
             </svg>
           </div>
 
-          <p class="font-romantic text-xl md:text-2xl text-muted-foreground tracking-widest uppercase mb-4 opacity-0 animate-fade-in-up stagger-2">
+          <p class="font-romantic text-lg md:text-xl lg:text-2xl text-muted-foreground tracking-widest uppercase mb-4 opacity-0 animate-fade-in-up stagger-2">
             A message from my heart
           </p>
 
-          <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient opacity-0 animate-fade-in-up stagger-3">
+          <h1 class="font-display leading-normal text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-tight md:leading-normal lg:leading-normal font-bold mb-6 text-gradient opacity-0 animate-fade-in-up stagger-3">
             Lovey
           </h1>
 
@@ -311,7 +324,7 @@
             <div class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-primary/50"></div>
           </div>
 
-          <p class="font-romantic text-2xl md:text-3xl text-foreground/80 italic max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up stagger-5">
+          <p class="font-romantic text-xl md:text-2xl lg:text-3xl text-foreground/80 italic max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up stagger-5">
             "Every love story is beautiful, but ours is my favorite"
           </p>
 
@@ -327,123 +340,139 @@
       </section>
 
       <!-- Our Story Timeline -->
-      <section id="our-story" class="py-24 px-6 gradient-romantic">
+      <section id="our-story" class="py-16 md:py-24 px-6 gradient-romantic">
         <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-16 scroll-reveal">
-            <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div class="text-center mb-12 md:mb-16 scroll-reveal">
+            <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
               Our Love Story
             </h2>
-            <p class="font-romantic text-xl text-muted-foreground italic">
+            <p class="font-romantic text-lg md:text-xl text-muted-foreground italic">
               A journey written in the stars
             </p>
           </div>
 
           <div class="relative">
-            <!-- Timeline line -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary/30 via-primary to-primary/30"></div>
+            <!-- Timeline line - hidden on mobile -->
+            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary/30 via-primary to-primary/30"></div>
 
             <!-- Event 1 -->
-            <div class="relative flex items-center mb-12 flex-row scroll-reveal from-left">
-              <div class="w-5/12 pr-8 text-right">
-                <div class="romantic-card p-6 hover:shadow-xl transition-shadow duration-300">
+            <div class="relative flex flex-col md:flex-row md:items-center mb-12 scroll-reveal">
+              
+              <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-4 md:mb-0">
+                <div class="romantic-card p-4 pt-12 md:p-6 hover:shadow-xl transition-shadow duration-300">
                   <span class="font-body text-sm text-primary tracking-widest uppercase">The Beginning</span>
-                  <h3 class="font-display text-2xl font-semibold mt-2 mb-3 text-foreground">When We First Met</h3>
-                  <p class="font-romantic text-lg text-muted-foreground leading-relaxed">The moment our eyes met, I knew my life was about to change forever.</p>
-                  
+                  <h3 class="font-display text-xl md:text-2xl font-semibold mt-2 mb-3 text-foreground">When We First Met</h3>
+                  <p class="font-romantic text-base md:text-lg text-muted-foreground leading-relaxed">The moment our eyes met, I knew my life was about to change forever.</p>
+
                   <!-- Hidden content with reveal animation -->
                   <div class="hidden-content mt-4 pt-4 border-t border-border/50">
-                    <p class="font-romantic text-base text-muted-foreground italic">I still remember every detail of that day. The way you smiled, the sound of your laugh — it was like the whole world stopped just for us.</p>
+                    <p class="font-romantic text-sm md:text-base text-muted-foreground italic">I still remember every detail of that day. The way you smiled, the sound of your laugh — it was like the whole world stopped just for us.</p>
                   </div>
                   <button onclick="toggleReveal(this)" class="mt-3 text-sm text-primary hover:text-sky-deep transition-colors cursor-pointer bg-transparent border-none font-body">Read more ↓</button>
                 </div>
               </div>
-              <div class="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <div class="w-12 h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
-                  <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+
+              <!-- Timeline icon -->
+              <div class="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 z-10 md:top-0 top-2">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
+                  <svg class="w-4 h-4 md:w-5 md:h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"/>
                   </svg>
                 </div>
               </div>
-              <div class="w-5/12"></div>
+
+              <div class="hidden md:block w-5/12"></div>
             </div>
 
             <!-- Event 2 -->
-            <div class="relative flex items-center mb-12 flex-row-reverse scroll-reveal from-right">
-              <div class="w-5/12 pl-8 text-left">
-                <div class="romantic-card p-6 hover:shadow-xl transition-shadow duration-300">
+            <div class="relative flex flex-col md:flex-row md:flex-row-reverse md:items-center mb-12 scroll-reveal">
+              
+              <div class="w-full md:w-5/12 md:pl-8 md:text-left mb-4 md:mb-0">
+                <div class="romantic-card p-4 pt-12 md:p-6 hover:shadow-xl transition-shadow duration-300">
                   <span class="font-body text-sm text-primary tracking-widest uppercase">The Journey</span>
-                  <h3 class="font-display text-2xl font-semibold mt-2 mb-3 text-foreground">Falling In Love</h3>
-                  <p class="font-romantic text-lg text-muted-foreground leading-relaxed">Every day with you became an adventure, every moment a treasure.</p>
-                  
+                  <h3 class="font-display text-xl md:text-2xl font-semibold mt-2 mb-3 text-foreground">Falling In Love</h3>
+                  <p class="font-romantic text-base md:text-lg text-muted-foreground leading-relaxed">Every day with you became an adventure, every moment a treasure.</p>
+
                   <div class="hidden-content mt-4 pt-4 border-t border-border/50">
-                    <p class="font-romantic text-base text-muted-foreground italic">With every passing day, I fell deeper in love with who you are. Your kindness, your strength, your beautiful soul — you became my everything.</p>
+                    <p class="font-romantic text-sm md:text-base text-muted-foreground italic">With every passing day, I fell deeper in love with who you are. Your kindness, your strength, your beautiful soul — you became my everything.</p>
                   </div>
                   <button onclick="toggleReveal(this)" class="mt-3 text-sm text-primary hover:text-sky-deep transition-colors cursor-pointer bg-transparent border-none font-body">Read more ↓</button>
                 </div>
               </div>
-              <div class="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <div class="w-12 h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
-                  <svg class="w-5 h-5 heart-icon" viewBox="0 0 24 24">
+
+              <!-- Timeline icon -->
+              <div class="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 z-10 md:top-0 top-2">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
+                  <svg class="w-4 h-4 md:w-5 md:h-5 heart-icon" viewBox="0 0 24 24">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                   </svg>
                 </div>
               </div>
-              <div class="w-5/12"></div>
+
+              <div class="hidden md:block w-5/12"></div>
             </div>
 
             <!-- Event 3 -->
-            <div class="relative flex items-center mb-12 flex-row scroll-reveal from-left">
-              <div class="w-5/12 pr-8 text-right">
-                <div class="romantic-card p-6 hover:shadow-xl transition-shadow duration-300">
+            <div class="relative flex flex-col md:flex-row md:items-center mb-12 scroll-reveal">
+              
+              <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-4 md:mb-0">
+                <div class="romantic-card p-4 pt-12 md:p-6 hover:shadow-xl transition-shadow duration-300">
                   <span class="font-body text-sm text-primary tracking-widest uppercase">Our Blessing</span>
-                  <h3 class="font-display text-2xl font-semibold mt-2 mb-3 text-foreground">Our Baby Girl</h3>
-                  <p class="font-romantic text-lg text-muted-foreground leading-relaxed">You made me a parent, and our love grew stronger with our beautiful daughter.</p>
-                  
+                  <h3 class="font-display text-xl md:text-2xl font-semibold mt-2 mb-3 text-foreground">Our Baby Girl</h3>
+                  <p class="font-romantic text-base md:text-lg text-muted-foreground leading-relaxed">You made me a parent, and our love grew stronger with our beautiful daughter.</p>
+
                   <div class="hidden-content mt-4 pt-4 border-t border-border/50">
-                    <p class="font-romantic text-base text-muted-foreground italic">The day Amari came into our lives, I saw a new kind of love in your eyes. Watching you become a mother made me fall in love with you all over again.</p>
+                    <p class="font-romantic text-sm md:text-base text-muted-foreground italic">The day Amari came into our lives, I saw a new kind of love in your eyes. Watching you become a mother made me fall in love with you all over again.</p>
                   </div>
                   <button onclick="toggleReveal(this)" class="mt-3 text-sm text-primary hover:text-sky-deep transition-colors cursor-pointer bg-transparent border-none font-body">Read more ↓</button>
                 </div>
               </div>
-              <div class="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <div class="w-12 h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
-                  <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+
+              <!-- Timeline icon -->
+              <div class="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 z-10 md:top-0 top-2">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
+                  <svg class="w-4 h-4 md:w-5 md:h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"/>
                   </svg>
                 </div>
               </div>
-              <div class="w-5/12"></div>
+
+              <div class="hidden md:block w-5/12"></div>
             </div>
 
             <!-- Event 4 -->
-            <div class="relative flex items-center mb-12 flex-row-reverse scroll-reveal from-right">
-              <div class="w-5/12 pl-8 text-left">
-                <div class="romantic-card p-6 hover:shadow-xl transition-shadow duration-300">
+            <div class="relative flex flex-col md:flex-row md:flex-row-reverse md:items-center mb-12 scroll-reveal last:mb-0">
+              
+              <div class="w-full md:w-5/12 md:pl-8 md:text-left mb-4 md:mb-0">
+                <div class="romantic-card pt-12 p-4 md:p-6 hover:shadow-xl transition-shadow duration-300">
                   <span class="font-body text-sm text-primary tracking-widest uppercase">Today</span>
-                  <h3 class="font-display text-2xl font-semibold mt-2 mb-3 text-foreground">Forever Begins</h3>
-                  <p class="font-romantic text-lg text-muted-foreground leading-relaxed">Now, I want to ask you the most important question of my life...</p>
-                  
+                  <h3 class="font-display text-xl md:text-2xl font-semibold mt-2 mb-3 text-foreground">Forever Begins</h3>
+                  <p class="font-romantic text-base md:text-lg text-muted-foreground leading-relaxed">Now, I want to ask you the most important question of my life...</p>
+
                   <div class="hidden-content mt-4 pt-4 border-t border-border/50">
-                    <p class="font-romantic text-base text-muted-foreground italic">Every moment has led us here. Every laugh, every tear, every adventure — they've all been preparing us for this beautiful forever.</p>
+                    <p class="font-romantic text-sm md:text-base text-muted-foreground italic">Every moment has led us here. Every laugh, every tear, every adventure — they've all been preparing us for this beautiful forever.</p>
                   </div>
                   <button onclick="toggleReveal(this)" class="mt-3 text-sm text-primary hover:text-sky-deep transition-colors cursor-pointer bg-transparent border-none font-body">Read more ↓</button>
                 </div>
               </div>
-              <div class="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <div class="w-12 h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
-                  <svg class="w-5 h-5 heart-icon" viewBox="0 0 24 24">
+
+              <!-- Timeline icon -->
+              <div class="absolute left-1/2 md:left-1/2 transform -translate-x-1/2 z-10 md:top-0 top-2">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-card border-4 border-primary flex items-center justify-center shadow-lg">
+                  <svg class="w-4 h-4 md:w-5 md:h-5 heart-icon" viewBox="0 0 24 24">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                   </svg>
                 </div>
               </div>
-              <div class="w-5/12"></div>
+
+              <div class="hidden md:block w-5/12"></div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Family Section -->
-      <section class="py-24 px-6 bg-sky-light/50">
+      <section class="py-16 md:py-24 px-6 bg-sky-light/50">
         <div class="max-w-4xl mx-auto">
           <div class="text-center mb-12 scroll-reveal">
             <svg class="w-12 h-12 mx-auto text-blush-deep mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -457,7 +486,7 @@
             </p>
           </div>
 
-          <div class="romantic-card p-8 md:p-12 text-center scroll-reveal">
+          <div class="romantic-card p-6 md:p-8 lg:p-12 text-center scroll-reveal">
             <div class="flex items-center justify-center gap-3 mb-6">
               <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"/></svg>
               <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"/></svg>
@@ -485,7 +514,7 @@
       </section>
 
       <!-- Proposal Section -->
-      <section id="proposal-section" class="py-24 px-6 min-h-screen flex items-center justify-center relative overflow-hidden gradient-hero">
+      <section id="proposal-section" class="py-16 md:py-24 px-6 min-h-screen flex items-center justify-center relative overflow-hidden gradient-hero">
         <!-- Question View -->
         <div id="question-view" class="text-center max-w-3xl mx-auto">
           <div class="mb-8 opacity-0 animate-scale-in stagger-1">
@@ -496,16 +525,16 @@
             </div>
           </div>
 
-          <p class="font-romantic text-xl text-muted-foreground mb-4 tracking-widest uppercase opacity-0 animate-fade-in stagger-2">
+          <p class="font-romantic text-lg md:text-xl text-muted-foreground mb-4 tracking-widest uppercase opacity-0 animate-fade-in stagger-2">
             The most important question
           </p>
 
-          <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground leading-tight opacity-0 animate-fade-in-up stagger-3">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold mb-8 text-foreground leading-tight opacity-0 animate-fade-in-up stagger-3">
             Will You <span class="text-gradient">Marry Me</span>?
           </h2>
 
-          <p class="font-romantic text-xl md:text-2xl text-muted-foreground italic mb-12 max-w-xl mx-auto opacity-0 animate-fade-in stagger-4">
-            I want to wake up next to you every morning, grow old with you, 
+          <p class="font-romantic text-lg md:text-xl lg:text-2xl text-muted-foreground italic mb-12 max-w-xl mx-auto opacity-0 animate-fade-in stagger-4">
+            I want to wake up next to you every morning, grow old with you,
             and love you for the rest of my life.
           </p>
 
@@ -542,11 +571,11 @@
             </svg>
           </div>
 
-          <h2 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient opacity-0 animate-fade-in-up stagger-3">
+          <h2 class="font-display text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 text-gradient opacity-0 animate-fade-in-up stagger-3">
             She Said Yes!
           </h2>
 
-          <p class="font-romantic text-2xl md:text-3xl text-foreground/90 mb-8 opacity-0 animate-fade-in stagger-4">
+          <p class="font-romantic text-xl md:text-2xl lg:text-3xl text-foreground/90 mb-8 opacity-0 animate-fade-in stagger-4">
             This is the beginning of our forever 💍
           </p>
 
@@ -581,21 +610,32 @@
       function createFloatingHearts() {
         const container = document.getElementById('floating-hearts');
         const heartSVG = `<svg class="heart-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
-        
-        for (let i = 0; i < 12; i++) {
+
+        // Adjust heart count and size based on screen size
+        const isMobile = window.innerWidth < 768;
+        const heartCount = isMobile ? 6 : 12;
+        const minSize = isMobile ? 8 : 12;
+        const maxSize = isMobile ? 14 : 16;
+
+        for (let i = 0; i < heartCount; i++) {
           const heart = document.createElement('div');
           heart.className = 'floating-heart';
           heart.innerHTML = heartSVG;
-          heart.style.left = `${Math.random() * 100}%`;
-          heart.style.top = `${20 + Math.random() * 60}%`;
+
+          // Ensure hearts stay within viewport bounds
+          const leftPos = Math.random() * 80 + 10; // 10% to 90% to avoid edges
+          const topPos = Math.random() * 70 + 15; // 15% to 85% for better distribution
+
+          heart.style.left = `${leftPos}%`;
+          heart.style.top = `${topPos}%`;
           heart.style.animationDelay = `${Math.random() * 5}s`;
           heart.style.animationDuration = `${4 + Math.random() * 4}s`;
           heart.style.opacity = 0.3 + Math.random() * 0.4;
-          
-          const size = 12 + Math.random() * 16;
+
+          const size = minSize + Math.random() * (maxSize - minSize);
           heart.querySelector('svg').style.width = `${size}px`;
           heart.querySelector('svg').style.height = `${size}px`;
-          
+
           container.appendChild(heart);
         }
       }
