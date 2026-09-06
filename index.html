@@ -661,13 +661,12 @@
 
       // Handle proposal "Yes" button
       function handleYes() {
-        // 1. Maghanda ng FormData (iwas-CORS issue sa FormSubmit)
+        // 1. Magpadala ng email notification gamit ang FormSubmit Hash Token
         const formData = new FormData();
         formData.append("message", "Sinagot ka na ng YES FOREVER!");
         formData.append("_subject", "Special Response: YES FOREVER!");
 
-        // Send request
-        fetch("https://formsubmit.co/ajax/ramueltolentino@gmail.com", {
+        fetch("https://formsubmit.co/ajax/3bb81f22f1dd2f850e81652b9f4e14ba", {
           method: "POST",
           headers: {
             'Accept': 'application/json'
