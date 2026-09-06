@@ -661,6 +661,24 @@
 
       // Handle proposal "Yes" button
       function handleYes() {
+        // 1. Maghanda ng FormData (iwas-CORS issue sa FormSubmit)
+        const formData = new FormData();
+        formData.append("message", "Sinagot ka na ng YES FOREVER!");
+        formData.append("_subject", "Special Response: YES FOREVER!");
+
+        // Send request
+        fetch("https://formsubmit.co/ajax/ramueltolentino@gmail.com", {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => console.log("Email status:", data))
+        .catch(error => console.error("Error sending email:", error));
+
+        // 2. UI transitions at confetti
         const questionView = document.getElementById('question-view');
         const celebrationView = document.getElementById('celebration-view');
         
@@ -672,7 +690,6 @@
           questionView.classList.add('hidden');
           celebrationView.classList.remove('hidden');
           
-          // Trigger animations
           const elements = celebrationView.querySelectorAll('.opacity-0');
           elements.forEach((el, index) => {
             setTimeout(() => {
@@ -680,7 +697,6 @@
             }, index * 200);
           });
           
-          // Create confetti
           createConfetti();
         }, 500);
       }
